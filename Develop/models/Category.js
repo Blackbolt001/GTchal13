@@ -17,6 +17,7 @@ Category.init(
       type:STRING, 
       allowNull:false,
     },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
