@@ -11,7 +11,7 @@ Category.init(
       type:INTEGER,
       allowNull:false,
       primaryKey:true,
-      autoInrement:true,
+      autoIncrement:true,
   },
     name: {
       type:STRING, 
