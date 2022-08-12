@@ -127,7 +127,7 @@ router.delete('/:id', (req, res) => {
       id:req.params.id
     }
   })
-  .then(dbProductData => req.json(dbProductData))
+  .then(dbProductData => res.json(dbProductData))
 });
 
 module.exports = router;
