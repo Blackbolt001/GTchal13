@@ -9,18 +9,20 @@ Tag.init(
     id: {
       type:INTEGER,
       allowNull:false,
-      primarykey:true,
+      primaryKey:true,
       autoIncrement:true,
     },
     tag_name: {
-      type:STRING,
-    },
+      type:STRING
+    }
+  },
+    {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'tag',
-  },
+  }
 );
 
 module.exports = Tag;
