@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbCatData) => res.json(dbCatData))
+    .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -25,7 +25,6 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
@@ -33,12 +32,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbCatData) => {
-      if (!dbCatData) {
-        res.status(400).json({ message: "404 | category nonexistant" });
+    .then((dbCategoryData) => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message:"no cagetory exists"});
         return;
       }
-      res.json(dbCatData);
+      res.json(dbCategoryData);
     })
     .catch((err) => {
       console.log(err);
@@ -50,13 +49,34 @@ router.post("/", (req, res) => {
   Category.create({
     category_name: req.body.category_name,
   })
-    .then((dbCatData) => res.json(dbCatData))
+    .then((dbProductData) => res.json(dbProductData))
     .catch((err) => {
       console.log(err);
-      res.status(400).json(err);
+      res.status(500).json(err);
     });
 });
 
+router.put("/:id", (req,res ) => {
+  Category.update (
+    {
+      category_name: req.body.category_name,
+    },
+    {where: {
+      id:req.params.id,
+    },
+  }
+  )
+  .then((dbCategoryData) => {
+    if(!dbCategoryData) {
+      res.status(404).json({message:"No Category exists!"});
+      return;
+    } res.json(dbCategoryData);
+  })
+  .catch((err) => {
+    console.log(err); 
+    res.status(500).json(err);
+  });
+});
 
 router.delete("/:id", (req, res) => {
   Category.destroy({
