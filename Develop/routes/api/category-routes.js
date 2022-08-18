@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
-const { userInfo } = require('os');
-const { update } = require('../../models/Category');
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
