@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Blackbolt001/GTchal13.git"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +20,9 @@
     "nodemon": "^2.0.3"
   },
   "dependencies": {
-    "dotenv": "^8.6.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mysql": "^2.18.1",
-    "sequelize": "^5.22.5"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
   }
 }
